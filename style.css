@@ -83,11 +83,12 @@ nav a:hover {
     border: none;
     cursor: pointer;
     text-align: center;
+    white-space: nowrap; /* Prevents button text from breaking */
 }
 
 .primary-cta {
     background-color: var(--color-tan);
-    color: var(--color-white); /* White text on Tan button for contrast */
+    color: var(--color-white); 
 }
 
 .primary-cta:hover {
@@ -152,7 +153,7 @@ nav a:hover {
 .hero h2 {
     font-size: 3em;
     margin-bottom: 10px;
-    color: var(--color-tan); /* Use tan for the main heading */
+    color: var(--color-tan); 
 }
 
 .hero p {
@@ -163,7 +164,7 @@ nav a:hover {
 
 /* --- Trust Bar/Metrics --- */
 .trust-bar {
-    background-color: #f8f8f8; /* Very light, subtle contrast */
+    background-color: #f8f8f8; 
     padding: 50px 0;
 }
 
@@ -182,7 +183,7 @@ nav a:hover {
 .metric span {
     font-size: 3.5em;
     font-weight: 700;
-    color: var(--color-tan); /* Key accent color for numbers */
+    color: var(--color-tan); 
 }
 
 .plus-text {
@@ -226,7 +227,7 @@ nav a:hover {
 }
 
 .service-card:hover {
-    box-shadow: 0 10px 25px rgba(17, 79, 64, 0.15); /* Green shadow on hover */
+    box-shadow: 0 10px 25px rgba(17, 79, 64, 0.15); 
     transform: translateY(-8px);
 }
 
@@ -259,24 +260,87 @@ footer a {
     transition: color 0.3s;
 }
 
-/* Responsive Adjustments */
+/* ======================================= */
+/* ====== MOBILE OPTIMIZATION START ====== */
+/* ======================================= */
+
+/* Media Query for Tablets and Smaller Desktops (less than 900px) */
 @media (max-width: 900px) {
-    .metrics-grid, .services-grid {
-        grid-template-columns: 1fr;
+    
+    /* Header Stacks */
+    header .container {
+        flex-direction: column;
+        text-align: center;
     }
+    
+    nav ul {
+        justify-content: center;
+        margin: 10px 0;
+    }
+
+    /* Hero Text Size Adjustment */
     .hero h2 {
         font-size: 2.5em;
     }
-    header .container {
-        flex-direction: column;
+    .hero p {
+        font-size: 1.1em;
     }
-    .cta-button.primary-cta {
-        margin-top: 15px;
+
+    /* Key Grids Stack Vertically */
+    .metrics-grid,
+    .services-grid {
+        grid-template-columns: 1fr; /* 1 column for all */
+        gap: 40px; /* Increase gap for better visual separation */
     }
+    
+    /* Metrics Padding */
+    .metric {
+        padding: 10px 0;
+        border-bottom: 1px solid #e0e0e0; /* Add subtle separator */
+    }
+    .metric:last-child {
+        border-bottom: none;
+    }
+    
+    /* Footer Stacks */
     footer .container {
         flex-direction: column;
+        gap: 10px;
     }
-    .contact-info {
-        margin-top: 10px;
+}
+
+/* Media Query for Phones (less than 600px) */
+@media (max-width: 600px) {
+    
+    .container {
+        padding: 0 15px; /* Reduce side padding for maximum space */
+    }
+    
+    /* Navigation Adjustments for small screens */
+    header .logo {
+        font-size: 1.5em;
+    }
+
+    nav ul {
+        flex-wrap: wrap; /* Allows nav links to wrap if needed */
+        margin-top: 5px;
+    }
+
+    /* Hero Section compression */
+    .hero {
+        height: 350px;
+    }
+    
+    .hero h2 {
+        font-size: 2em; /* Smaller, punchier heading */
+    }
+    
+    .hero p {
+        font-size: 1em;
+    }
+    
+    .cta-button.large-cta {
+        padding: 12px 20px;
+        font-size: 1em;
     }
 }
